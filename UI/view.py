@@ -1,6 +1,6 @@
 import flet as ft
 from UI.alert import AlertManager
-
+from model.model import Model
 '''
     VIEW:
     - Rappresenta l'interfaccia utente
@@ -37,6 +37,10 @@ class View:
 
         # --- Sezione 2: Filtraggio ---
         # TODO
+        self._dd_museo= ft.Dropdown(label='Museo',
+                                    options=[Model.get_musei()],
+                                    width=)
+
 
         # Sezione 3: Artefatti
         # TODO
@@ -54,6 +58,7 @@ class View:
 
             # Sezione 2: Filtraggio
             # TODO
+
 
             # Sezione 3: Artefatti
             # TODO

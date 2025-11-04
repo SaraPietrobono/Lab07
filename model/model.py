@@ -18,12 +18,23 @@ class Model:
         """Restituisce la lista di tutti gli artefatti filtrati per museo e/o epoca (filtri opzionali)."""
         # TODO
 
+
     def get_epoche(self):
         """Restituisce la lista di tutte le epoche."""
         # TODO
+        lst_epoche=[]
+        for art in self._artefatto_dao.read_artefatti():
+            lst_epoche.append(art.epoca)
+        return lst_epoche
 
     # --- MUSEI ---
     def get_musei(self):
         """ Restituisce la lista di tutti i musei."""
         # TODO
+        if len(self._museo_dao.read_museo())==0:
+            self._museo_dao=MuseoDAO.read_museo()
+        else:
+            print('No need to read again from database using SQL query')
+        return self._museo_dao
+
 

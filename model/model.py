@@ -30,16 +30,13 @@ class Model:
                 lista_artefatti.append(a)
         return lista_artefatti
 
-
-
-
-
     def get_epoche(self):
         """Restituisce la lista di tutte le epoche."""
         # TODO
         lst_epoche=[]
         for art in self._artefatto_dao.read_artefatti():
-            lst_epoche.append(art.epoca)
+            if art.epoca not in lst_epoche:
+                lst_epoche.append(art.epoca)
         return lst_epoche
 
     # --- MUSEI ---

@@ -26,7 +26,6 @@ class Controller:
         self._view.update()
     def on_change_museo(self,e):
         self.museo_selezionato = e.control.value
-        self._view.show_alert(f'Hai selezionato:{self.museo_selezionato}')
 
     def popola_epoche(self):
         lista_epoche=self._model.get_epoche()
@@ -37,7 +36,7 @@ class Controller:
 
     def on_change_epoche(self,e):
         self.epoca_selezionata = e.control.value
-        self._view.show_alert(f'Hai selezionato: {self.epoca_selezionata}')
+
 
     def mostra_artefatti(self,e):
       lista_art=self._model.get_artefatti_filtrati(self.museo_selezionato,self.epoca_selezionata)

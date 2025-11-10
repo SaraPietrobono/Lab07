@@ -18,9 +18,9 @@ class ArtefattoDAO:
         cnx=database.DB_connect.ConnessioneDB.get_connection()
         if cnx is None:
             print('Connection failed')
-            return None
+            return []
         else:
-            cursor = cnx.cursor()
+            cursor = cnx.cursor(dictionary=True)
             query="""SELECT * FROM artefatto""" #mi seleziono tutti gli artefatti nella tabella torino
             cursor.execute(query)
             for row in cursor:

@@ -1,6 +1,9 @@
 import flet as ft
+from flet.core.elevated_button import ElevatedButton
+from flet.core.types import MainAxisAlignment
+
 from UI.alert import AlertManager
-from model.model import Model
+
 '''
     VIEW:
     - Rappresenta l'interfaccia utente
@@ -37,33 +40,49 @@ class View:
 
         # --- Sezione 2: Filtraggio ---
         # TODO
-        self._dd_museo= ft.Dropdown(label='Museo',
-                                    options=[Model.get_musei()],
-                                    width=)
+        self._dd_museo=ft.Dropdown(label='Museo',
+                                   options=[],
+                                   width=300,
+                                   on_change=self.controller.on_change_museo)
 
+        self.controller.popola_musei()
+
+        self._dd_epoca=ft.Dropdown(label='Epoca',
+                                   options=[],
+                                   width=300,
+                                   on_change=self.controller.on_change_epoche)
+        self.controller.popola_epoche()
 
         # Sezione 3: Artefatti
         # TODO
+        art_button=ElevatedButton('Mostra Artefatti', on_click=self.controller.mostra_artefatti)
+        self.lista_art=ft.ListView(expand=True, spacing=5, padding=10, auto_scroll=True)
 
         # --- Toggle Tema ---
         self.toggle_cambia_tema = ft.Switch(label="Tema scuro", value=True, on_change=self.cambia_tema)
 
         # --- Layout della pagina ---
-        self.page.add(
-            self.toggle_cambia_tema,
+        self.page.add(self.toggle_cambia_tema,
 
             # Sezione 1
-            self.txt_titolo,
+           self.txt_titolo,
             ft.Divider(),
 
             # Sezione 2: Filtraggio
             # TODO
+            ft.Row([self._dd_museo, self._dd_epoca], alignment=MainAxisAlignment.CENTER),
+            ft.Divider(),
+
 
 
             # Sezione 3: Artefatti
             # TODO
-        )
+            ft.Row([art_button],alignment=ft.MainAxisAlignment.CENTER),
+            self.lista_art,
+            ft.Divider(),
 
+
+                      )
         self.page.scroll = "adaptive"
         self.page.update()
 

@@ -42,12 +42,6 @@ class Model:
     # --- MUSEI ---
     def get_musei(self):
         """ Restituisce la lista di tutti i musei."""
-        # TODO
-       # if len(self._museo_dao.read_museo())==0:
-        #    self._museo_dao=MuseoDAO.read_museo()
-        #else:
-         #   print('No need to read again from database using SQL query')
-        #return self._museo_dao
         return self._museo_dao.read_museo()
 
 

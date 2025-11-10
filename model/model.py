@@ -38,7 +38,6 @@ class Model:
             if art.epoca not in lst_epoche:
                 lst_epoche.append(art.epoca)
         return lst_epoche
-
     # --- MUSEI ---
     def get_musei(self):
         """ Restituisce la lista di tutti i musei."""

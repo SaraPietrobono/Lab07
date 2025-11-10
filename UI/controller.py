@@ -48,5 +48,3 @@ class Controller:
               self._view.lista_art.controls.append(ft.Text(a))
       self._view.update()
 
-    # AZIONE: MOSTRA ARTEFATTI
-    # TODO
